@@ -14,8 +14,12 @@ class PriorityController extends Controller
      */
     public function index()
     {
-        //
+        $priorities=Priority::all();
+        return view("priorities.index", [
+            'priorities'=>$priorities
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +28,7 @@ class PriorityController extends Controller
      */
     public function create()
     {
-        //
+        return view("priorities.create");
     }
 
     /**
@@ -35,7 +39,11 @@ class PriorityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $priority=new Priority();
+        $priority->name=$request->name;
+        $priority->save();
+
+        return redirect()->route('priorities.index');
     }
 
     /**
@@ -57,7 +65,9 @@ class PriorityController extends Controller
      */
     public function edit(Priority $priority)
     {
-        //
+        return view("priorities.edit", [
+            "priority"=>$priority
+        ]);
     }
 
     /**
@@ -69,7 +79,12 @@ class PriorityController extends Controller
      */
     public function update(Request $request, Priority $priority)
     {
-        //
+        {
+            $priority->name=$request->name;
+            $priority->save();
+            return redirect()->route('priorities.index');
+    
+        }
     }
 
     /**
@@ -80,6 +95,7 @@ class PriorityController extends Controller
      */
     public function destroy(Priority $priority)
     {
-        //
+        $priority->delete();
+        return redirect()->route('priorities.index');
     }
 }
