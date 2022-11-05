@@ -30,7 +30,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a href="{{ route('priorities.index') }}" class="nav-link">Prioritetu sarasas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('priorities.create') }}" class="nav-link">Prideti</a>
+                        </li>
+                    </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
