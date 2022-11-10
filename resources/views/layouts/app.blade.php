@@ -20,25 +20,30 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+            <img src="https://www.clevergirlfinance.com/wp-content/uploads/2021/09/Priorities-in-life.jpg.webp" alt="" width="200px" height="100px">            
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+            
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('priorities.index') }}" class="nav-link">Prioritetu sarasas</a>
+                    <ul class="nav flex-column nav-pills">
+                    <li class="nav-link">  
+                            <a href="{{ route('priorities.index') }}" class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Prioritetų sąrašas</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('priorities.create') }}" class="nav-link">Prideti</a>
+                        <li class="nav-link">
+                            <a href="{{ route('priorities.create') }}" class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Pridėti prioritetą</a>
                         </li>
                     </ul>
+                    <img src="https://img.freepik.com/premium-photo/word-task-written-wood-cubes-mans-hand-places-coins-surface-cube-green-potted-plant-background-business-finance-concept_384017-1794.jpg?w=900" alt="" width="200px" height="100px">
+                    <ul class="nav flex-column nav-pills">
+                        <li class="nav-link">
+                            <a href="{{ route('tasks.index') }}" class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Užduočių sąrašas</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{{ route('tasks.create') }}" class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Pridėti užduotį</a>
+                        </li>
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -55,9 +60,9 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown">Sveikas prisijungęs:<br>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -77,10 +82,9 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
+        </div>
+        <main class="py-2">
+        @yield('content')
         </main>
-    </div>
 </body>
 </html>

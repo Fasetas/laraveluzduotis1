@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\PriorityController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('priorities', PriorityController::class);
-Auth::routes();
+Route::resource('tasks', TaskController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

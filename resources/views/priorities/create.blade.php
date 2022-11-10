@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Prideti</div>
+                    <div class="card-header">Pridėti</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('priorities.store') }}">
                             @csrf
