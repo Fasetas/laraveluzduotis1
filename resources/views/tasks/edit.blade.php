@@ -7,16 +7,17 @@
                 <div class="card">
                     <div class="card-header">Pridėti užduotį</div>
                     <div class="card-body">
+                    @include('tasks.error')
                         <form method="POST" action="{{ route('tasks.update', $task->id) }}">
                             @csrf
                             @method("PUT")
                             <div class="mb-3">
                                 <label class="form-label">Pavadinimas</label>
-                                <input type="text" class="form-control" name="name" value="{{ $task->name }}">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name',  $task->name )}}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Aprašymas</label>
-                                <input type="text" class="form-control" name="discription" value="{{ $task->discription }}">
+                                <input type="text" class="form-control @error('discription') is-invalid @enderror" name="discription" value="{{ old('discription',  $task->discription )}}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Statusas</label>

@@ -7,11 +7,12 @@
                 <div class="card">
                     <div class="card-header">Pridėti</div>
                     <div class="card-body">
+                    @include('priorities.error')
                         <form method="POST" action="{{ route('priorities.store') }}">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Pavadinimas</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"" name="name" value="{{ old('name') }}">
                             </div>
                             <button class="btn btn-success">Pridėti</button>
                         </form>

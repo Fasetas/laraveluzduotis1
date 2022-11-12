@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class PriorityController extends Controller
 {
+    private $validationRules=[
+        'name' => ['required', 'min:3', 'max:64'],
+    ];
+    private $validationMessages=[
+        'name.required'=>'<b>Pavadinimas</b> yra privalomas', 
+        'name.min'=>'Pavadinimas turi buti ne trumpeesnis nei 3 simboliai',
+        'name.max'=>'Pavadinimas turi buti ne ilgesnis nei 64 simboliu',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +47,7 @@ class PriorityController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationRules, $this->validationMessages);
         $priority=new Priority();
         $priority->name=$request->name;
         $priority->save();
@@ -80,6 +89,7 @@ class PriorityController extends Controller
     public function update(Request $request, Priority $priority)
     {
         {
+            $request->validate($this->validationRules, $this->validationMessages);
             $priority->name=$request->name;
             $priority->save();
             return redirect()->route('priorities.index');
